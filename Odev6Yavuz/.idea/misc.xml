@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/anasayfa_selector.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/ara_resim.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bottom_nav_icon_color_selector.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bottomnav_text_size_selector.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/button1_resim.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/button3_resim.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/button_resim2.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/card_edge.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/hespiburada_selector.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/sepet_selector.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/siparis_selector.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/yardim_selector.xml" value="0.178" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/layout/card_tasarim_dahaonce.xml" value="0.625" />
+        <entry key="app/src/main/res/layout/card_tasarim_kategori.xml" value="0.625" />
+        <entry key="app/src/main/res/layout/card_tasarim_marketler.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/fragment_anasayfa.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/menu/menu_bottom.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/menu/toolbar_search_menu.xml" value="0.228125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

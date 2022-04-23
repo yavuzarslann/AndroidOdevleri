@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/anasayfa_selector"
+        android:title="Ana sayfa" />
+
+    <item
+        android:icon="@drawable/siparis_selector"
+        android:title="Siparişlerim" />
+    <item
+        android:icon="@drawable/sepet_selector"
+        android:title="Sepetim" />
+    <item
+        android:icon="@drawable/yardim_selector"
+        android:title="Canlı Yardım" />
+    <item
+        android:icon="@drawable/hespiburada_selector"
+        android:title="Hepsiburada" />
+</menu>
