@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/anasayfaFragment">
+
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.example.bitirmeyavuz.fragment.AnasayfaFragment"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/detayGecis"
+            app:destination="@id/yemekDetayFragment"
+            app:enterAnim="@anim/sagdan_sola"
+            app:popExitAnim="@anim/soldan_saga" />
+        <action
+            android:id="@+id/sepetGecis"
+            app:destination="@id/yemekSepetFragment"
+            app:enterAnim="@anim/soldan_saga"
+            app:popExitAnim="@anim/sagdan_sola" />
+    </fragment>
+    <fragment
+        android:id="@+id/yemekDetayFragment"
+        android:name="com.example.bitirmeyavuz.fragment.YemekDetayFragment"
+        android:label="fragment_yemek_detay"
+        tools:layout="@layout/fragment_yemek_detay" >
+        <argument
+            android:name="yemekler"
+            app:argType="com.example.bitirmeyavuz.entity.Yemekler" />
+    </fragment>
+    <fragment
+        android:id="@+id/yemekSepetFragment"
+        android:name="com.example.bitirmeyavuz.fragment.YemekSepetFragment"
+        android:label="fragment_yemek_sepet"
+        tools:layout="@layout/fragment_yemek_sepet" />
+</navigation>
