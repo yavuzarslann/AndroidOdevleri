@@ -21,6 +21,7 @@ import java.util.List;
 public class YemeklerAdapter extends RecyclerView.Adapter<YemeklerAdapter.CardTasarimTutucu> {
     private Context mContext;
     private List<Yemekler> yemeklerListesi;
+    private boolean isFavorite = false;
 
     public YemeklerAdapter(Context mContext, List<Yemekler> yemeklerListesi) {
         this.mContext = mContext;
@@ -59,6 +60,25 @@ public class YemeklerAdapter extends RecyclerView.Adapter<YemeklerAdapter.CardTa
         t.cardYemekler.setOnClickListener(view -> {
             AnasayfaFragmentDirections.DetayGecis gecis = AnasayfaFragmentDirections.detayGecis(yemek);
             Navigation.findNavController(view).navigate(gecis);
+        });
+        t.imageViewTumSepet.setOnClickListener(view -> {
+            AnasayfaFragmentDirections.DetayGecis gecis = AnasayfaFragmentDirections.detayGecis(yemek);
+            Navigation.findNavController(view).navigate(gecis);
+        });
+
+        t.lottieFavori.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isFavorite){
+                    t.lottieFavori.setSpeed(-1);
+                    t.lottieFavori.playAnimation();
+                    isFavorite = false;
+                }else {
+                    t.lottieFavori.setSpeed(1);
+                    t.lottieFavori.playAnimation();
+                    isFavorite = true;
+                }
+            }
         });
     }
 

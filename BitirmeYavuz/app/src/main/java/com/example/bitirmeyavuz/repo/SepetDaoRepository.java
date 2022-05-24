@@ -11,8 +11,6 @@ import retrofit2.Response;
 public class SepetDaoRepository {
     private SepetDaoInterface sdao;
 
-    //toplam fiyat hesaplama
-    private SepetAlmaDaoRepository sarepo;
 
     public SepetDaoRepository() {
         sdao = ApiUtils.getSepetDaoInterFace();

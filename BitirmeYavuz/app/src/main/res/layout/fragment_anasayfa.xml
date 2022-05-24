@@ -3,57 +3,158 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <data>
         <variable name="anasayfaToolbarBaslik" type="String" />
         <variable name="anasayfaFragment" type="com.example.bitirmeyavuz.fragment.AnasayfaFragment" />
         <variable name="yemeklerAdapter" type="com.example.bitirmeyavuz.adapter.YemeklerAdapter" />
+        <variable name="kategorilerAdapter" type="com.example.bitirmeyavuz.adapter.KategorilerAdapter" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.AnasayfaFragment">
+        android:id="@+id/drawerLayout">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarAnasayfa"
-            app:title="@{anasayfaToolbarBaslik}"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fillViewport="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarAnasayfa">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/acıkGri"
+            tools:context=".fragment.AnasayfaFragment">
 
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvTumYemekler"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:adapter="@{yemeklerAdapter}"
-                    android:orientation="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:spanCount="2" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
+            <TextView
+                android:id="@+id/textViewKategori"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/frutiger"
+                android:text="Kategoriler"
+                android:textColor="@color/anarenk"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchViewAnasayfa" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textViewMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/frutiger"
+                android:text="Menü"
+                android:textColor="@color/anarenk"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvKategoriler" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarAnasayfa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="@{anasayfaToolbarBaslik}"
+                app:titleTextColor="@color/black" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvKategoriler">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvTumYemekler"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:adapter="@{yemeklerAdapter}"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:spanCount="2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <ImageView
+                android:id="@+id/imageViewProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/toolbarAnasayfa"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/kisi_resim" />
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchViewAnasayfa"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/arama_arkaplan"
+                app:defaultQueryHint="Süper yemeğini bul..."
+                app:iconifiedByDefault="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbarAnasayfa" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvKategoriler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:adapter="@{kategorilerAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchViewAnasayfa"
+                app:spanCount="1" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/toolbarAnasayfa"
+                app:layout_constraintStart_toStartOf="@+id/toolbarAnasayfa"
+                app:layout_constraintTop_toTopOf="@+id/toolbarAnasayfa"
+                app:srcCompat="@drawable/kase_logo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/navigationView"
+            app:headerLayout="@layout/drawer_header_menu"
+            app:menu="@menu/drawer_menu"
+            android:fitsSystemWindows="true"
+            android:layout_gravity = "start">
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
 </layout>

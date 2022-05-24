@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_nav"
-    app:startDestination="@id/anasayfaFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <fragment
         android:id="@+id/anasayfaFragment"
@@ -12,14 +12,16 @@
         tools:layout="@layout/fragment_anasayfa" >
         <action
             android:id="@+id/detayGecis"
-            app:destination="@id/yemekDetayFragment"
-            app:enterAnim="@anim/sagdan_sola"
-            app:popExitAnim="@anim/soldan_saga" />
+            app:destination="@id/yemekDetayFragment" />
         <action
             android:id="@+id/sepetGecis"
-            app:destination="@id/yemekSepetFragment"
-            app:enterAnim="@anim/soldan_saga"
-            app:popExitAnim="@anim/sagdan_sola" />
+            app:destination="@id/yemekSepetFragment" />
+        <action
+            android:id="@+id/profilGecis"
+            app:destination="@id/profilFragment" />
+        <action
+            android:id="@+id/anaDanLogineGecis"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/yemekDetayFragment"
@@ -29,10 +31,56 @@
         <argument
             android:name="yemekler"
             app:argType="com.example.bitirmeyavuz.entity.Yemekler" />
+        <action
+            android:id="@+id/detaydanAnaGecis"
+            app:destination="@id/anasayfaFragment" />
     </fragment>
     <fragment
         android:id="@+id/yemekSepetFragment"
         android:name="com.example.bitirmeyavuz.fragment.YemekSepetFragment"
         android:label="fragment_yemek_sepet"
-        tools:layout="@layout/fragment_yemek_sepet" />
+        tools:layout="@layout/fragment_yemek_sepet" >
+        <action
+            android:id="@+id/sepettenAnaGecis"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.example.bitirmeyavuz.fragment.ProfilFragment"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" >
+        <action
+            android:id="@+id/profildenLogineGecis"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.bitirmeyavuz.fragment.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/splashdenAnaGecis"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.bitirmeyavuz.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/logindenKayitaGecis"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/logindenAnaGecis"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.bitirmeyavuz.fragment.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/kayitttanLogineGecis"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

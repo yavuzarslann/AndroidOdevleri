@@ -20,16 +20,21 @@ public class YemekSepetFragmentViewModel extends ViewModel {
         sepetYemeklerListesi = sarepo.sepetYemekleriGetir();
     }
 
-    public void sepetYemekleriYukle(){
+    public void sepetYemekleriYukle() {
         sarepo.sepetYemekleriAl();
     }
 
-    public void sepetYemekleriSil(int sepet_yemek_id,String kullanici_adi){
-        ssrepo.sepetYemekleriSil(sepet_yemek_id,kullanici_adi);
+    public void sepetYemekleriSil(int sepet_yemek_id, String kullanici_adi) {
+        ssrepo.sepetYemekleriSil(sepet_yemek_id, kullanici_adi);
     }
 
     //toplam fiyat hesaplama
-    public LiveData<Double> toplamFiyatiAl(){
+    public LiveData<Double> toplamFiyatiAl() {
         return sarepo.toplamFiyatiAl();
+    }
+
+    //septteki tekrarı önleme
+    public LiveData<Integer> toplamAdetiAl() {
+        return sarepo.toplamAdetAl();
     }
 }

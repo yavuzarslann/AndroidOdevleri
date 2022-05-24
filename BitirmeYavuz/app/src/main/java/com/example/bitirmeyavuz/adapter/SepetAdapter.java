@@ -1,6 +1,7 @@
 package com.example.bitirmeyavuz.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -17,7 +18,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class SepetAdapter extends RecyclerView.Adapter<SepetAdapter.CardTasarimTutucu>{
+public class SepetAdapter extends RecyclerView.Adapter<SepetAdapter.CardTasarimTutucu> {
     private Context mContext;
     private List<SepetYemekler> sepetYemeklerListesi;
     private YemekSepetFragmentViewModel viewModel;
@@ -28,7 +29,7 @@ public class SepetAdapter extends RecyclerView.Adapter<SepetAdapter.CardTasarimT
         this.viewModel = viewModel;
     }
 
-    public class CardTasarimTutucu extends RecyclerView.ViewHolder{
+    public class CardTasarimTutucu extends RecyclerView.ViewHolder {
         private CardTasarimSepetBinding tasarim;
 
         public CardTasarimTutucu(CardTasarimSepetBinding tasarim) {
@@ -41,7 +42,7 @@ public class SepetAdapter extends RecyclerView.Adapter<SepetAdapter.CardTasarimT
     @Override
     public CardTasarimTutucu onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-        CardTasarimSepetBinding tasarim = DataBindingUtil.inflate(layoutInflater,R.layout.card_tasarim_sepet,parent,false);
+        CardTasarimSepetBinding tasarim = DataBindingUtil.inflate(layoutInflater, R.layout.card_tasarim_sepet, parent, false);
         return new CardTasarimTutucu(tasarim);
     }
 
@@ -57,11 +58,39 @@ public class SepetAdapter extends RecyclerView.Adapter<SepetAdapter.CardTasarimT
         Picasso.get().load(url).into(t.imageViewSepetResim);
 
         t.imageViewSilResim.setOnClickListener(view -> {
-            Snackbar.make(view,sYemek.getYemek_adi()+" sepetten silinsin mi?",Snackbar.LENGTH_LONG)
-                    .setAction("Evet",v1 ->{
-                        viewModel.sepetYemekleriSil(sYemek.getSepet_yemek_id(),"yavuz");
+            Snackbar.make(view, sYemek.getYemek_adi() + " sepetten silinsin mi?", Snackbar.LENGTH_LONG)
+                    .setAction("Evet", v1 -> {
+                        viewModel.sepetYemekleriSil(sYemek.getSepet_yemek_id(), "yavuz");
                         viewModel.sepetYemekleriYukle();
-                    }).show();
+
+                    })
+                    .setActionTextColor(Color.RED)
+                    .setTextColor(Color.BLACK)
+                    .setBackgroundTint(Color.WHITE)
+                    .show();
+        });
+
+        //sepette adet butonları çalıştırma
+        t.imageViewSepetArttir.setOnClickListener(view -> {
+            String a = t.textViewSepetYemekAdedi.getText().toString();
+            int b = Integer.parseInt(a);
+            if (b >= 1)
+                b++;
+            String adet = String.valueOf(b);
+            t.textViewSepetYemekAdedi.setText(adet);
+            int fiyat = b * sYemek.getYemek_fiyat();
+            t.textViewSepetYemekFiyat.setText(String.valueOf(fiyat) + " TL");
+        });
+
+        t.imageViewSepetAzalt.setOnClickListener(view -> {
+            String a = t.textViewSepetYemekAdedi.getText().toString();
+            int b = Integer.parseInt(a);
+            if (b >= 2)
+                b--;
+            String adet = String.valueOf(b);
+            t.textViewSepetYemekAdedi.setText(adet);
+            int fiyat = b * sYemek.getYemek_fiyat();
+            t.textViewSepetYemekFiyat.setText(String.valueOf(fiyat) + " TL");
         });
 
     }

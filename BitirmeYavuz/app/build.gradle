@@ -33,6 +33,7 @@ android {
 }
 
 apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'com.google.gms.google-services'
 
 dependencies {
 
@@ -51,4 +52,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation "com.airbnb.android:lottie:5.0.3"
+
+    implementation platform('com.google.firebase:firebase-bom:30.0.1')
+    implementation 'com.google.firebase:firebase-auth:21.0.4'
+    implementation 'com.google.firebase:firebase-database:20.0.5'
 }

@@ -42,5 +42,25 @@ public class YemeklerDaoRepository {
             }
         });
     }
+    //arama işlemi
+    /*public void yemekAra(String aramaKelimesi){
+        ydao.tumYemekler().enqueue(new Callback<YemeklerCevap>() {
+            @Override
+            public void onResponse(Call<YemeklerCevap> call, Response<YemeklerCevap> response) {
+                List<Yemekler> liste = response.body().getYemekler();
+                for(Yemekler yem: liste){
+                    if(yem.getYemek_adi().toLowerCase().contains(aramaKelimesi.toLowerCase())){
+                        yemeklerListesi.setValue(liste);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<YemeklerCevap> call, Throwable t) {
+
+            }
+        });
+    }*/
 
 }

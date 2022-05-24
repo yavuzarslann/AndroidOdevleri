@@ -16,8 +16,11 @@
             android:id="@+id/cardYemekler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="30dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="2dp"
+            app:cardCornerRadius="20dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -25,9 +28,9 @@
 
                 <ImageView
                     android:id="@+id/imageViewTumYemekler"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -38,9 +41,10 @@
                     android:id="@+id/textViewTumYemekAdi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/frutiger"
                     android:text="@{yemekNesnesi.yemek_adi}"
-                    android:textSize="16sp"
+                    android:textColor="@color/anarenk"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -50,22 +54,58 @@
                     android:id="@+id/textViewTumYemekFiyat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="sans-serif"
                     android:text='@{String.valueOf(yemekNesnesi.yemek_fiyat)+" TL"}'
+                    android:textColor="@color/anarenk"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewTumYemekAdi" />
 
-                <Button
-                    android:id="@+id/buttonTumSepeteEkle"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="+"
-                    app:cornerRadius="20dp"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottieFavori"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewTumYemekAdi" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_rawRes="@raw/like" />
+
+                <ImageView
+                    android:id="@+id/imageViewTumSepet"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="52dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewTumYemekler"
+                    app:srcCompat="@drawable/arti" />
+
+                <ImageView
+                    android:id="@+id/imageViewYildiz"
+                    android:layout_width="90dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="25dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewTumYemekler"
+                    app:srcCompat="@drawable/yildiz" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="4,6"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewYildiz"
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewTumYemekler" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>

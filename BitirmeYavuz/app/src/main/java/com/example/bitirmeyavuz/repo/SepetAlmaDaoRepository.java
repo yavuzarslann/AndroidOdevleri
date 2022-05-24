@@ -20,6 +20,8 @@ public class SepetAlmaDaoRepository {
 
     //toplam fiyat hesaplama
     private MutableLiveData<Double> mutableToplamFiyat = new MutableLiveData<>();
+    //septteki tekrarı önleme
+    private MutableLiveData<Integer> mutableToplamAdet = new MutableLiveData<>();
 
     public SepetAlmaDaoRepository() {
         sadao = ApiUtils.getSepetAlmaDaoInterface();
@@ -36,6 +38,7 @@ public class SepetAlmaDaoRepository {
             public void onResponse(Call<SepetYemeklerCevap> call, Response<SepetYemeklerCevap> response) {
                 sepetYemeklerListesi.setValue(response.body().getSepetYemekler());
                 sepetToplamHesapla();
+                sepetAdetToplama();
             }
 
             @Override
@@ -62,5 +65,23 @@ public class SepetAlmaDaoRepository {
             mutableToplamFiyat.setValue(0.0);
         }
         return mutableToplamFiyat;
+    }
+
+    //septteki tekrarı önleme
+    public void sepetAdetToplama(){
+        if (sepetYemeklerListesi.getValue() == null) return;
+        Integer toplamAdet = 0;
+        List<SepetYemekler> sepetYemeklerList = sepetYemeklerListesi.getValue();
+        for (SepetYemekler sepetYemekler: sepetYemeklerList){
+            toplamAdet = sepetYemekler.getYemek_siparis_adet();
+        }
+        mutableToplamAdet.setValue(toplamAdet);
+    }
+
+    public LiveData<Integer> toplamAdetAl(){
+        if (mutableToplamAdet == null){
+            mutableToplamAdet.setValue(0);
+        }
+        return mutableToplamAdet;
     }
 }

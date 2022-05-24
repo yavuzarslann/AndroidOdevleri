@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "934165681179",
+    "project_id": "yemek-siparis-aceda",
+    "storage_bucket": "yemek-siparis-aceda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934165681179:android:e7ccdf4d7ebd48738614be",
+        "android_client_info": {
+          "package_name": "com.example.bitirmeyavuz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934165681179-79385mgm5k24hmcnhmbno01mm4cq721c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA208Ii9kHbT8whq31t8NOHZFKOx_FgWyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934165681179-79385mgm5k24hmcnhmbno01mm4cq721c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

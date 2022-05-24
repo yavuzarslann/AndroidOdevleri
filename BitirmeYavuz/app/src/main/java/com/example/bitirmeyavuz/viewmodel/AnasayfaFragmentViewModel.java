@@ -17,7 +17,11 @@ public class AnasayfaFragmentViewModel extends ViewModel {
         yemeklerListesi = yrepo.yemekleriGetir();
     }
 
-    public void yemekleriYukle(){
+    public void yemekleriYukle() {
         yrepo.tumYemekleriAl();
     }
+    //ara işlemi
+    /*public void ara(String aramaKelimesi){
+        yrepo.yemekAra(aramaKelimesi);
+    }*/
 }

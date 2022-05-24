@@ -12,19 +12,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.YemekSepetFragment">
+        tools:context=".fragment.YemekSepetFragment"
+        android:background="@color/acıkGri">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarSepet"
-            app:title="@{sepetToolbarBaslik}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="@color/acıkGri"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{sepetToolbarBaslik}"
+            app:titleTextColor="@color/black" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
@@ -54,11 +56,15 @@
 
         <Button
             android:id="@+id/buttonSiparisiOnayla"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_width="190dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="@color/anarenk"
+            android:fontFamily="@font/hlm"
             android:text="Siparişi Onayla"
+            android:textSize="16sp"
+            app:cornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -66,11 +72,38 @@
             android:id="@+id/textViewToplamTutar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="32dp"
             android:text="Sepet Toplamı: 0 TL"
+            android:textColor="@color/anarenk"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/tcf_diple_medium"
+            android:text="Sepetim"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/toolbarSepet"
+            app:layout_constraintStart_toStartOf="@+id/toolbarSepet"
+            app:layout_constraintTop_toTopOf="@+id/toolbarSepet" />
+
+        <ImageView
+            android:id="@+id/imageViewSepetGeri"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/toolbarSepet"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ok" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
